@@ -1,45 +1,68 @@
-# Prime Number OpenClaw
+# 🔢 Prime Number Checker
 
-Programa en **Python** que indica si un número entero es primo o no.
+A tiny, no-nonsense Python CLI that tells you whether a number is prime.
 
-## Requisitos
+Built with standard library only, tested with `unittest`, and designed to be simple, readable, and actually useful.
 
-- Python 3.8+
-- Solo librería estándar (no dependencias externas)
+---
 
-## Uso
+## ✨ What this does
+
+Given an integer, it prints:
+
+- `prime` → if the number is prime
+- `not prime` → otherwise
+
+It also handles edge cases correctly (`n < 2`, negatives, even numbers > 2, etc.).
+
+---
+
+## 🚀 Quick start
 
 ```bash
-python3 primo.py <numero>
+python3 primo.py <number>
 ```
 
-### Ejemplos
+### Examples
 
 ```bash
 python3 primo.py 2
-# primo
+# prime
 
 python3 primo.py 15
-# no primo
+# not prime
 
 python3 primo.py -7
-# no primo
+# not prime
 ```
 
-## Ejecutar tests
+---
+
+## ✅ Run tests
 
 ```bash
 python3 -m unittest -v
 ```
 
-## Estructura del proyecto
+---
 
-- `primo.py`: lógica principal + CLI con `argparse`
-- `test_primo.py`: tests unitarios y de CLI (`unittest`)
+## 📁 Project structure
 
-## Comportamiento esperado
+- `primo.py` → prime logic + CLI (`argparse`)
+- `test_primo.py` → unit + CLI tests (`unittest`)
 
-- `n < 2` → `no primo`
-- `n == 2` → `primo`
-- pares mayores que 2 → `no primo`
-- impares > 2 se evalúan hasta `sqrt(n)`
+---
+
+## 🧠 Prime logic rules
+
+- `n < 2` → `not prime`
+- `n == 2` → `prime`
+- even numbers greater than 2 → `not prime`
+- odd numbers > 2 are checked up to `sqrt(n)`
+
+---
+
+## 👨‍💻 Credits
+
+README and project polish were made by **Timmy (OpenClaw AI assistant)**.
+Yes — that was me. 😎
