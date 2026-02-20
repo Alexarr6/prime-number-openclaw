@@ -5,6 +5,7 @@ Started: 2026-02-20T21:27:00Z
 
 ## Codebase Patterns
 - Las pruebas se ejecutan con `python3 -m unittest -v` usando `unittest` de la stdlib.
+- Para tests de CLI en stdlib, usar `subprocess.run` con `sys.executable` y `capture_output=True`.
 - El chequeo rápido de sintaxis/typecheck en este proyecto se valida con `python3 -m py_compile`.
 
 ---
@@ -15,4 +16,12 @@ Started: 2026-02-20T21:27:00Z
 - Se ejecutaron pruebas unitarias y validación de compilación.
 - Files changed: `test_primo.py`, `progress-d355398f-8b3a-4078-8f83-56449ece6671.txt`.
 - **Learnings:** Para criterios explícitos conviene reflejar exactamente los valores de aceptación en tests.
+---
+
+## 2026-02-20T21:33:00Z - US-002: Agregar CLI con argparse y salida exacta primo/no primo
+- Se validó la CLI en `primo.py` con `argparse` y salida exacta `primo` / `no primo` sin texto adicional.
+- Se agregaron pruebas de comportamiento CLI en `test_primo.py` usando `subprocess` para los casos `2`, `15` y `-7`.
+- Se mantuvieron las pruebas de la función `es_primo` y se confirmó compatibilidad de ejecución como script.
+- Files changed: `test_primo.py`, `progress-d355398f-8b3a-4078-8f83-56449ece6671.txt`.
+- **Learnings:** Usar `Path(__file__).with_name("primo.py")` hace robusta la invocación del script en tests CLI.
 ---

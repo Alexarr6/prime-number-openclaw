@@ -1,4 +1,7 @@
+import subprocess
+import sys
 import unittest
+from pathlib import Path
 
 from primo import es_primo
 
@@ -33,6 +36,32 @@ class TestEsPrimo(unittest.TestCase):
 
     def test_primo_grande(self):
         self.assertTrue(es_primo(7919))
+
+
+class TestCLIPrimo(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.script = Path(__file__).with_name("primo.py")
+
+    def run_cli(self, n):
+        return subprocess.run(
+            [sys.executable, str(self.script), str(n)],
+            capture_output=True,
+            text=True,
+            check=True,
+        )
+
+    def test_cli_2(self):
+        result = self.run_cli(2)
+        self.assertEqual(result.stdout.strip(), "primo")
+
+    def test_cli_15(self):
+        result = self.run_cli(15)
+        self.assertEqual(result.stdout.strip(), "no primo")
+
+    def test_cli_negativo(self):
+        result = self.run_cli(-7)
+        self.assertEqual(result.stdout.strip(), "no primo")
 
 
 if __name__ == "__main__":
