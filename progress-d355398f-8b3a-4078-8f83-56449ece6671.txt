@@ -1,0 +1,18 @@
+# Progress Log
+Run: d355398f-8b3a-4078-8f83-56449ece6671
+Task: Crear un programa en Python que indique si un número entero es primo o no.
+Started: 2026-02-20T21:27:00Z
+
+## Codebase Patterns
+- Las pruebas se ejecutan con `python3 -m unittest -v` usando `unittest` de la stdlib.
+- El chequeo rápido de sintaxis/typecheck en este proyecto se valida con `python3 -m py_compile`.
+
+---
+
+## 2026-02-20T21:28:00Z - US-001: Crear módulo primo.py con función es_primo(n)
+- Se validó la implementación de `es_primo(n: int) -> bool` en `primo.py` con manejo de bordes (`n < 2`, `2`, pares > 2) y evaluación de impares hasta raíz cuadrada.
+- Se ajustaron pruebas de `test_primo.py` para incluir explícitamente el caso `es_primo(4) == False` solicitado por aceptación.
+- Se ejecutaron pruebas unitarias y validación de compilación.
+- Files changed: `test_primo.py`, `progress-d355398f-8b3a-4078-8f83-56449ece6671.txt`.
+- **Learnings:** Para criterios explícitos conviene reflejar exactamente los valores de aceptación en tests.
+---

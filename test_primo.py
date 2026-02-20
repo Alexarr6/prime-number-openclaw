@@ -19,6 +19,9 @@ class TestEsPrimo(unittest.TestCase):
     def test_tres(self):
         self.assertTrue(es_primo(3))
 
+    def test_cuatro(self):
+        self.assertFalse(es_primo(4))
+
     def test_par_mayor_que_dos(self):
         self.assertFalse(es_primo(10))
 
