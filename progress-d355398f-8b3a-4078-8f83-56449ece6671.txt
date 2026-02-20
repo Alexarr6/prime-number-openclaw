@@ -6,6 +6,7 @@ Started: 2026-02-20T21:27:00Z
 ## Codebase Patterns
 - Las pruebas se ejecutan con `python3 -m unittest -v` usando `unittest` de la stdlib.
 - Para tests de CLI en stdlib, usar `subprocess.run` con `sys.executable` y `capture_output=True`.
+- `argparse` retorna código de salida `2` cuando falla el parseo de argumentos; útil para tests de CLI inválida.
 - El chequeo rápido de sintaxis/typecheck en este proyecto se valida con `python3 -m py_compile`.
 
 ---
@@ -24,4 +25,13 @@ Started: 2026-02-20T21:27:00Z
 - Se mantuvieron las pruebas de la función `es_primo` y se confirmó compatibilidad de ejecución como script.
 - Files changed: `test_primo.py`, `progress-d355398f-8b3a-4078-8f83-56449ece6671.txt`.
 - **Learnings:** Usar `Path(__file__).with_name("primo.py")` hace robusta la invocación del script en tests CLI.
+---
+
+## 2026-02-20T21:38:00Z - US-003: Crear test_primo.py (>=8 tests) y preparar entrega con PR
+- Se reforzó `test_primo.py` con una prueba adicional de regresión de CLI para argumento inválido (`abc`), validando parseo de `argparse` con exit code 2.
+- Se confirmó cobertura de tests para casos requeridos `2`, `15` y `-7`, y suite total >=8 casos.
+- Se ejecutaron pruebas (`unittest`) y validación de sintaxis (`py_compile`).
+- Se preparó la entrega para PR desde `feature/primo-cli-tests` hacia `main`.
+- Files changed: `test_primo.py`, `progress-d355398f-8b3a-4078-8f83-56449ece6671.txt`.
+- **Learnings:** además de salida exacta, conviene testear comportamiento de error de CLI para evitar regresiones de parsing.
 ---

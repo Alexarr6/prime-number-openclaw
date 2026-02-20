@@ -63,6 +63,15 @@ class TestCLIPrimo(unittest.TestCase):
         result = self.run_cli(-7)
         self.assertEqual(result.stdout.strip(), "no primo")
 
+    def test_cli_argumento_invalido_falla_parseo(self):
+        result = subprocess.run(
+            [sys.executable, str(self.script), "abc"],
+            capture_output=True,
+            text=True,
+            check=False,
+        )
+        self.assertEqual(result.returncode, 2)
+
 
 if __name__ == "__main__":
     unittest.main()
